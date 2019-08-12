@@ -5,20 +5,46 @@ using UnityEngine;
 public class GamePlay : MonoBehaviour
 {
     public int ObjectCollided;
-    public bool gameStarted;
+    public bool levelStarted;
 
 
     private void Start()
     {
+        
+        StartCoroutine(lateTest());
+    }
+
+    IEnumerator lateTest()
+    {
         startLevel();
+        yield return new WaitForSeconds(0.3f);
+        RefHolder.instance.animManagerScript.playCameraStartLevel();
+        yield return new WaitForSeconds(4f);
+        activateInputs();
+        RefHolder.instance.followCameraScript.activated = true;
+        levelStarted = true;
     }
     public void startLevel()
     {
-        gameStarted = true;
+        
         RefHolder.instance.levelManagerScript.initializeLeve();
-        RefHolder.instance.sligshotScript.activator();
+        
+        
+    }
+
+
+    public void activateInputs()
+    {
+        RefHolder.instance.sligshotScript.slingshotStart();
         RefHolder.instance.inputManagerScript.activator();
-        RefHolder.instance.followCameraScript.activated = true;
+        
+    }
+
+    public void deactivateInputs()
+    {
+        RefHolder.instance.sligshotScript.slingshotStop();
+        RefHolder.instance.inputManagerScript.deactivator();
+        
     }
 
 
@@ -27,9 +53,10 @@ public class GamePlay : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void reEnterLevel()
     {
-        
+
     }
+
+    
 }

@@ -15,6 +15,7 @@ public class RefHolder : MonoBehaviour
     public PrePrediction prePredictionScript;
     public FollowCamera followCameraScript;
     public TimeManager timeManager;
+    public AnimManager animManagerScript;
     
     [Header("Objects")]
     public GameObject ballGameObject;
@@ -22,6 +23,7 @@ public class RefHolder : MonoBehaviour
     public GameObject followCameraObject;
     public GameObject leftCameraObject;
     public GameObject rightCameraObject;
+    public GameObject animCameraObject;
 
         private void Awake()
         {
@@ -58,6 +60,11 @@ public class RefHolder : MonoBehaviour
         deactivateAllCamera();
         rightCameraObject.SetActive(true);
     }
+    public void animCameraActivate()
+    {
+        deactivateAllCamera();
+        animCameraObject.SetActive(true);
+    }
 
     public void deactivateAllCamera()
     {
@@ -65,5 +72,7 @@ public class RefHolder : MonoBehaviour
         followCameraObject.SetActive(false);
         leftCameraObject.SetActive(false);
         rightCameraObject.SetActive(false);
+        animCameraObject.SetActive(false);
+        
     }
 }

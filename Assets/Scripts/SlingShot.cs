@@ -27,13 +27,13 @@ public class SlingShot : MonoBehaviour
 
     }
 
-    public void activator()
+    public void slingshotStart()
     {
         activated = true;
         StartCoroutine(renderArc());
     }
 
-    public void deactivator()
+    public void slingshotStop()
     {
         activated = false;
         
@@ -81,6 +81,7 @@ public class SlingShot : MonoBehaviour
         lineRendererBool = false;
         //Time.timeScale = 0.5f;
         shootBall();
+        RefHolder.instance.gameplayScript.deactivateInputs();
     }
 
 

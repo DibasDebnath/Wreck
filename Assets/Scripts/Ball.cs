@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Object"))
         {
+            //RefHolder.instance.gameplayScript.ObjectCollided++;
             if (Random.Range(0, 2) == 0)
             {
                 RefHolder.instance.leftCameraActivate();

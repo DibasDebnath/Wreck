@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     public void initializeLeve()
     {
-        Debug.Log(levels.Count);
+        //Debug.Log(levels.Count);
         levels[level].SetActive(true);
     }
 
