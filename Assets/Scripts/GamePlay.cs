@@ -28,7 +28,7 @@ public class GamePlay : MonoBehaviour
     {
         
         RefHolder.instance.levelManagerScript.initializeLeve();
-        
+       
         
     }
 
